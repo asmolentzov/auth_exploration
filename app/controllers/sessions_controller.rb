@@ -21,4 +21,10 @@ class SessionsController < ApplicationController
       render "new"
     end
   end
+  
+  def destroy
+    session[:current_user_id] = nil 
+    session[:current_password] = nil 
+    redirect_to login_path
+  end
 end
