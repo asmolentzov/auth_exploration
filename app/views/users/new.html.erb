@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <h1>Create a New Account!</h1>
 <%= form_for @user do |f| %>
 <%= f.label :name %>

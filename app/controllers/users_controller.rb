@@ -9,8 +9,13 @@ class UsersController < ApplicationController
   end
   
   def create
-    user = User.create(user_params)
-    redirect_to user_path(user)
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = "Please fill out all the fields! Email address must be unique."
+      render "new"
+    end
   end
   
   private
