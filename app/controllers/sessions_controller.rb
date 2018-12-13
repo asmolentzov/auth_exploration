@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       session[:current_user_id] = params[:email]
       session[:current_password] = params[:password]
     else
-      flash[:notice] = "ACCESS DENIED Try again I guess"
+      flash[:denied] = "ACCESS DENIED Try again I guess"
       render "new"
     end
   end
